@@ -1,7 +1,8 @@
-import { DynamicModule } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 import { AerospikeService } from './aerospike.service';
 import { AerospikeConfig } from './aerospike.config';
 
+@Module({})
 export class AerospikeModule {
   static forRoot(config?: AerospikeConfig): DynamicModule {
     if (!config) {
