@@ -3,7 +3,10 @@ import { AerospikeService } from './aerospike.service';
 import { AerospikeConfig } from './aerospike.config';
 
 export class AerospikeModule {
-  static forRoot(config: AerospikeConfig): DynamicModule {
+  static forRoot(config?: AerospikeConfig): DynamicModule {
+    if (!config) {
+      config = {};
+    }
     if (!config.hosts) {
       config.hosts = process.env.AEROSPIKE || 'localhost:3000';
     }
